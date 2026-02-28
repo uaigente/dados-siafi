@@ -1,6 +1,5 @@
-def hello():
-    return 'Hello, world!'
+from frictionless import Package
 
+package = Package('datapackage.yaml')
 
-if __name__ == '__main__':
-    print(hello())
+resource = package.resources[0]

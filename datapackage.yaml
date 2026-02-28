@@ -1,0 +1,32 @@
+name: dados_siafi
+title: Sistema Integrado de Administração Financeira – SIAFI 2026
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+resources:
+  - name: execucao
+    type: table
+    path: ['data_raw/execucao_01.csv', 'data_raw/execucao_02.csv','data_raw/execucao_03.csv',
+    'data_raw/execucao_04.csv', 'data_raw/execucao_05.csv', 'data_raw/execucao_06.csv',
+    'data_raw/execucao_07.csv', 'data_raw/execucao_08.csv', 'data_raw/execucao_09.csv',
+    'data_raw/execucao_10.csv','data_raw/execucao_11.csv', 'data_raw/execucao_12.csv']
+    scheme: multipart
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: dialect.yaml
+    schema: schemas/execucao.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
+
+  - name: credito
+    type: table
+    path: 'data_raw/credito.csv'
+    scheme: file
+    format: csv
+    mediatype: text/csv
+    encoding: utf-8
+    dialect: dialect.yaml
+    schema: schemas/credito.yaml
+    dpetl_extract:
+      mode: email
+      mailbox: '[Gmail]/Trash'
