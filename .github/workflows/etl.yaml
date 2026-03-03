@@ -41,10 +41,11 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
-      - name: Update the project
-        run: |
-          poetry update
-      - name: Run tests
+      - name: Run ETL
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
+          EMAIL_IMAP: ${{ secrets.EMAIL_IMAP }}
         run: |
           source .venv/bin/activate
           task etl
