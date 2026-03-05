@@ -1,5 +1,5 @@
 [project]
-name = 'repo-template-etl'
+name = 'dados-siafi'
 version = '0.1.0'
 description = ''
 authors = [
